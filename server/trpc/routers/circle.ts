@@ -33,6 +33,18 @@ export const circleRouter = router({
       return balances.data.data
     }),
 
+  getPaymentDetails: publicProcedure
+    .input(z.object({
+      paymentId: z.string(),
+    }))
+    .query(async ({ input }) => {
+      const { paymentId } = input
+
+      const paymentDetails = await circle.payments.getPayment(paymentId)
+
+      return paymentDetails.data.data
+    }),
+
   createPayment: publicProcedure
     .input(schema)
     .mutation(async ({ input }) => {
