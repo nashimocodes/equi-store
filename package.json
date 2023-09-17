@@ -30,6 +30,7 @@
     "node": "18.17.1"
   },
   "dependencies": {
+    "@circle-fin/circle-sdk": "^2.4.0",
     "consola": "^3.2.3",
     "dayjs": "^1.11.9",
     "kysely": "^0.26.3",
