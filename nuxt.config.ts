@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: 'opinionated nuxt',
+      title: 'EQUI-STORE',
       meta: [
         {
           name: 'description',
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
       link: [
         {
           rel: 'icon',
-          href: '/oink.svg',
+          href: 'https://cdn.discordapp.com/attachments/1112797564778074182/1152923300423548959/EquiLogo.png',
         },
       ],
     },
