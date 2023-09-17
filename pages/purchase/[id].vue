@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import type { DetailedPayment } from '@circle-fin/circle-sdk'
 import type { Product } from '~/lib/types/Product'
 
+const { $client } = useNuxtApp()
 const route = useRoute()
 const rawProductData = await useFetch(`https://fakestoreapi.com/products/${route.params.id}`)
 const product = await rawProductData.data.value as Product
 
+const processingPayment = ref(false)
 const cardNumber = ref('4200000000000000')
 const cardCvv = ref('666')
 const cardExpMonth = ref('12')
@@ -16,6 +19,31 @@ const cardLine1 = ref('123 Main St')
 const cardPostalCode = ref('94103')
 const cardDistrict = ref('CA')
 const amount = ref(product.price)
+
+const creationResponse = ref<DetailedPayment | undefined>(undefined)
+const createCardMutation = $client.circle.createPayment
+
+async function processPayment() {
+  processingPayment.value = true
+  const responseData = await createCardMutation.mutate({
+    number: cardNumber.value,
+    cvv: cardCvv.value,
+    expMonth: cardExpMonth.value,
+    expYear: cardExpYear.value,
+    amount: amount.value,
+    billingDetails: {
+      name: cardName.value,
+      city: cardCity.value,
+      country: cardCountry.value,
+      line1: cardLine1.value,
+      postalCode: cardPostalCode.value,
+      district: cardDistrict.value,
+    },
+  })
+
+  creationResponse.value = responseData
+  processingPayment.value = false
+}
 </script>
 
 <template>
@@ -90,6 +118,21 @@ const amount = ref(product.price)
           <input v-model="amount" disabled rounded-md px-2 py-1 text-black placeholder="Amount">
         </div>
       </div>
+
+      <button w-full flex items-center justify-center rounded-full bg-blue py-1 text-2xl @click="processPayment()">
+        <span v-if="processingPayment">
+          <div i-line-md-loading-twotone-loop />
+        </span>
+        <span v-else>
+          Pay!
+        </span>
+      </button>
+
+      <span text-white>
+        {{
+          JSON.stringify(creationResponse, null, 2)
+        }}
+      </span>
     </div>
     <div col-span-2 h-fit>
       <ProductCard :product="product" />

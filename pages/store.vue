@@ -2,18 +2,16 @@
 import type { Product } from '~/lib/types/Product'
 
 onMounted(async () => {
-  if (!products.value.length) {
-    const data = await useFetch('https://fakestoreapi.com/products')
-    if (!data)
-      return console.error('Failed to fetch products')
+  const data = await useFetch('https://fakestoreapi.com/products')
+  if (!data)
+    return console.error('Failed to fetch products')
 
-    products.value = data.data.value as Product[]
-  }
+  products.value = data.data.value as Product[]
 })
 </script>
 
 <template>
-  <div flex flex-col gap-4 font-mono>
+  <div mx-auto max-w-5xl flex flex-col gap-4 font-mono>
     <h1 text-3xl font-bold underline="~ dotted" text-indigo>
       Store
     </h1>

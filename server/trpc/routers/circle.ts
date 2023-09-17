@@ -78,7 +78,7 @@ export const circleRouter = router({
             id: cardId,
             type: SourceTypeEnum.Card,
           },
-          description: 'Payment for Lancing Order',
+          description: 'Payment for Store Order',
         }
 
         const createPaymentResponse = await circle.payments.createPayment(
