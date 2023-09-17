@@ -3,11 +3,22 @@
 </script>
 
 <template>
-  <div class="h-screen flex items-center justify-center bg-zinc-900 font-mono text-white">
-    Hello, Pizza!
+  <div class="font-inter h-screen flex flex-col items-center justify-center gap-3 bg-zinc-900 text-4xl font-black tracking-wider uppercase text-white">
+    <h1 text-2xl text-blue underline underline-dashed>
+      equi-Store
+    </h1>
+
+    <h1>
+      Your Own Store-front
+    </h1>
+
+    <h2 text-lg text-gray>
+      Easy Payments By
+    </h2>
+
+    <img h-8 src="https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Brand/Circle/circle-logo-color.png" alt="">
   </div>
 </template>
 
 <style scoped>
-
 </style>
