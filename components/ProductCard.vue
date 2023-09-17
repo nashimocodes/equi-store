@@ -20,11 +20,16 @@ const props = defineProps<{
     </div>
 
     <div flex items-center justify-between>
-      <div flex items-center rounded-md bg-lime px-4 py-2>
+      <div
+        flex items-center rounded-md bg-lime px-4 py-2
+        :class="{
+          'w-full text-center justify-center': $route.path === `/purchase/${$props.product.id}`,
+        }"
+      >
         ${{ $props.product.price }}
       </div>
 
-      <NuxtLink :to="`/purchase/${$props.product.id}`" class="flex items-center gap-2 rounded-md bg-indigo px-4 py-2">
+      <NuxtLink v-if="$route.path !== `/purchase/${$props.product.id}`" :to="`/purchase/${$props.product.id}`" class="flex items-center gap-2 rounded-md bg-indigo px-4 py-2">
         Purchase
         <div i-material-symbols-line-end-arrow />
       </NuxtLink>
