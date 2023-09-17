@@ -18,7 +18,10 @@ onMounted(() => {
         Equi-Store
       </NuxtLink>
     </div>
-    <div flex items-center gap-2>
+    <div flex items-center gap-4>
+      <NuxtLink to="/transactions" class="font-mono hover:underline">
+        Transactions
+      </NuxtLink>
       <div font-bold tracking-wide font-mono text-indigo>
         Circle Funds Stats ({{ rawCircleBalance.data.value!.available[0].currency }}):
       </div>
