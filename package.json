@@ -14,6 +14,7 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@nuxt/devtools": "^0.8.3",
+    "@types/uuid": "^9.0.4",
     "@unocss/eslint-config": "^0.55.7",
     "@unocss/nuxt": "^0.55.7",
     "@unocss/reset": "^0.55.7",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "@circle-fin/circle-sdk": "^2.4.0",
+    "@faker-js/faker": "^8.0.2",
     "@trpc/client": "^10.38.3",
     "@trpc/server": "^10.38.3",
     "consola": "^3.2.3",
