@@ -9,6 +9,7 @@ import { circle } from '~/lib/payments'
 import { encryptCard } from '~/server/utils/circle'
 
 export const schema = z.object({
+  orderTitle: z.string(),
   number: z.string(),
   cvv: z.string(),
   expMonth: z.string(),
@@ -73,12 +74,12 @@ export const circleRouter = router({
             currency: Currency.Usd,
           },
           autoCapture: true,
-          verification: PaymentCreationRequestVerificationEnum.Cvv,
+          verification: PaymentCreationRequestVerificationEnum.None,
           source: {
             id: cardId,
             type: SourceTypeEnum.Card,
           },
-          description: 'Payment for Store Order',
+          description: `Payment for Order: ${input.orderTitle} | Order ID: ${nanoid()}`,
         }
 
         const createPaymentResponse = await circle.payments.createPayment(

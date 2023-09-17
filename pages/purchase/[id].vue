@@ -26,6 +26,7 @@ const createCardMutation = $client.circle.createPayment
 async function processPayment() {
   processingPayment.value = true
   const responseData = await createCardMutation.mutate({
+    orderTitle: product.title,
     number: cardNumber.value,
     cvv: cardCvv.value,
     expMonth: cardExpMonth.value,
