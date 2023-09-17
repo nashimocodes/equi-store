@@ -45,6 +45,13 @@ export const circleRouter = router({
       return paymentDetails.data.data
     }),
 
+  getAllTransactions: publicProcedure
+    .query(async () => {
+      const transactions = await circle.payments.listPayments()
+
+      return transactions.data.data
+    }),
+
   createPayment: publicProcedure
     .input(schema)
     .mutation(async ({ input }) => {
