@@ -1,3 +1,4 @@
+/* eslint-disable n/prefer-global/process */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -36,5 +37,8 @@ export default defineNuxtConfig({
         from: 'consola',
       },
     ],
+  },
+  runtimeConfig: {
+    CIRCLE_API_KEY: process.env.CIRCLE_API_KEY,
   },
 })
