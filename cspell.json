@@ -10,6 +10,7 @@
         "kysely",
         "notivue",
         "nuxt",
+        "openpgp",
         "TRPC",
         "unocss",
         "vueuse"
