@@ -28,7 +28,7 @@ export const schema = z.object({
 export const circleRouter = router({
   getBalance: publicProcedure
     .query(async () => {
-      const balances = await circle.balances.listBalances()
+      const balances = await circle.balances.listBusinessBalances()
 
       return balances.data.data
     }),
