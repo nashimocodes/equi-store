@@ -38,6 +38,9 @@ export default defineNuxtConfig({
       },
     ],
   },
+  build: {
+    transpile: ['trpc-nuxt'],
+  },
   runtimeConfig: {
     CIRCLE_API_KEY: process.env.CIRCLE_API_KEY,
   },
