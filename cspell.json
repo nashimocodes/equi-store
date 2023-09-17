@@ -10,6 +10,7 @@
         "kysely",
         "notivue",
         "nuxt",
+        "TRPC",
         "unocss",
         "vueuse"
     ],
