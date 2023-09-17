@@ -7,9 +7,9 @@ const circleBalance = await $client.circle.getBalance.query()
 <template>
   <div flex items-center justify-between>
     <div flex items-center gap-4>
-      <h1 font-black tracking-wider uppercase text-blue>
+      <NuxtLink to="/store" font-black tracking-wider uppercase text-blue>
         Equi-Store
-      </h1>
+      </NuxtLink>
     </div>
     <div flex items-center gap-2>
       <div font-bold tracking-wide font-mono text-indigo>
