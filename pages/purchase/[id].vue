@@ -129,6 +129,11 @@ async function processPayment() {
         </span>
       </button>
 
+      <NuxtLink v-if="creationResponse" :to="`/purchase/info/${creationResponse?.id}`" w-fit flex items-center gap-2 rounded-md bg-red px-4 py-2>
+        Check Transaction Details and Status
+        <div i-material-symbols-line-end-arrow />
+      </NuxtLink>
+
       <span text-white>
         {{
           JSON.stringify(creationResponse, null, 2)
